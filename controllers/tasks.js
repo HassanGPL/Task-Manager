@@ -11,16 +11,16 @@ exports.getAllTasks = async (req, res, next) => {
 }
 
 exports.getSingleTask = async (req, res, next) => {
-    // try {
-    //     const { id: taskID } = req.params;
-    //     const task = await Task.findOne({ _id: taskID });
-    //     if (!task) {
-    //         return res.status(404).json({ msg: `No Task With This ID : ${taskID}` });
-    //     }
-    //     res.json({ task });
-    // } catch (error) {
-    //     res.status(500).json({ msg: error });
-    // }
+    try {
+        const { id: taskID } = req.params;
+        const task = await Task.findOne({ _id: taskID });
+        if (!task) {
+            return res.status(404).json({ msg: `No Task With This ID : ${taskID}` });
+        }
+        res.json({ task });
+    } catch (error) {
+        res.status(500).json({ msg: error });
+    }
 }
 
 exports.patchUpdateTask = async (req, res, next) => {
