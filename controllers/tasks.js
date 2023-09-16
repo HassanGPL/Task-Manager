@@ -61,3 +61,8 @@ exports.postCreateTask = async (req, res, next) => {
         res.status(500).json({ msg: error });
     }
 }
+
+
+exports.notFound = (req, res, next) => {
+    res.status(404).send(`<h1>Page Not Found 404</h1>`);
+}
