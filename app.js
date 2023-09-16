@@ -5,13 +5,14 @@ const tasksRouter = require('./routes/tasks');
 require('dotenv').config();
 
 // middlewares
+app.use(express.static('./public'));
 app.use(express.json());
 
 
-// routes
-app.get('/hello', (req, res, next) => {
-    res.send('Task Manager App from my localhost');
-});
+// // routes
+// app.get('/', (req, res, next) => {
+//     res.send('Task Manager App from my localhost');
+// });
 
 app.use('/api/v1/tasks', tasksRouter);
 
